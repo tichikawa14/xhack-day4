@@ -1,5 +1,22 @@
-<ul>
-  <% @data.each do |mes| %>
-    <li><%= mes["name"] %></li>
-  <% end %>
-</ul>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>XHACK勉強会</title>
+  </head>
+  <body>
+    <% @data.each do |data| %>
+      <ul>
+        <li>名前：<%= data["name"] %></li>
+        <li>コメント：<%= data["commnet"] %></li>
+      </ul>
+    <% end %>
+
+    <form action="/comments" method="post">
+      名前：<input type="text" name="name">
+      <input class="form-control" type="text" placeholder="Default input" name="comment">
+      <!-- <button class="btn btn-light" type="button" style="" id="post_comment" type="submit">Add Comment</button> -->
+      <input class="btn btn-light" type="submit" value="送信する">
+    </form>
+  </body>
+</html>
